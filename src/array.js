@@ -1,4 +1,4 @@
-class MyArray {
+export class MyArray {
   constructor() {
     this.length = 0;
     this.data = {};
@@ -36,6 +36,13 @@ class MyArray {
   }
 }
 
-module.exports = {
-  MyArray: MyArray
-}
+// const newArray = new MyArray();
+// newArray.push('hi');
+// newArray.push('you');
+// newArray.push('!');
+// console.log(newArray);
+// newArray.delete(0);
+// newArray.push('are');
+// newArray.push('nice');
+// newArray.delete(1);
+// console.log(newArray);

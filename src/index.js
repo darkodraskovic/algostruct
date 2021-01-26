@@ -1,38 +1,11 @@
-// import { MyArray } from './array';
+// import { MyArray } from './array.js';
+import { doTwoMemSumTo } from './utils.js'
+import { reverseStringLambda } from './utils.js'
 
-// const newArray = new MyArray();
-// newArray.push('hi');
-// newArray.push('you');
-// newArray.push('!');
-// console.log(newArray);
-// newArray.delete(0);
-// newArray.push('are');
-// newArray.push('nice');
-// newArray.delete(1);
-// console.log(newArray);
+// const arr1 = ['a', 'b', 'c', 'd', 'e'];
+// const arr2 = ['x', 'y', 'a', 'z', '0'];
+// console.log(arr1.some(item => arr2.includes(item)));
+// console.log(containCommonElement(arr1, arr2));
 
-
-// function reverse(str) {
-//   let arr = str.split("");
-//   let i = 0;
-//   let j = arr.length-1;
-//   while(i < j) {
-//     let tmp = arr[i];
-//     arr[i] = arr[j];
-//     arr[j] = tmp;
-//     i++;
-//     j--;
-//   }
-//   return arr.join("");
-// }
-
-// let str = "Hello World!";
-// let str = "Hello Worldz!";
-let str = "zappa";
-// let revStr = reverse(str);
-// console.log( revStr );
-
-// const reverse3 = str => str.split('').reverse().join('');
-const reverse3 = str => [...str].reverse().join('');
-console.log( reverse3(str) );
-
+console.log(doTwoMemSumTo(12, [1, 3, 9, 7, 7, 1, 10, 5, 2]));
+console.log(reverseStringLambda('abac'));
