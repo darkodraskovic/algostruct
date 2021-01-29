@@ -41,3 +41,17 @@ export function doTwoMemSumTo(n, arr) {
   }
   return false;
 }
+
+export function mergeSorted(a, b) {
+  if (a.length === 0) return b;
+  if (b.length === 0) return a;
+  
+  const c = [];
+  let ai = 0;
+  let bi = 0;
+  while(ai < a.length && bi <b.length) {
+    if (a[ai] < b[bi]) c.push(a[ai++]);
+    else c.push(b[bi++]);
+  }
+  return c.concat(ai < a.length ? b.slice(bi) : a.slice(ai));
+}
