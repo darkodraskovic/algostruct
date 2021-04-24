@@ -1,9 +1,10 @@
+// Check if two arrays contain at least one common element
 export function containCommonElement(arr1, arr2) {
-  let arr1Map = {};
-  for (var i = 0; i < arr1.length; i++) {
+  const arr1Map = {};
+  for (let i = 0; i < arr1.length; i++) {
     arr1Map[arr1[i]] = true;
   }
-  for (var i = 0; i < arr2.length; i++) {
+  for (let i = 0; i < arr2.length; i++) {
     if (arr1Map[arr2[i]]) return true;
   }
   return false;
@@ -12,11 +13,11 @@ export function containCommonElement(arr1, arr2) {
 // arr1.some(item => arr2.includes(item));
 
 export function reverseString(str) {
-  let arr = str.split("");
+  const arr = str.split("");
   let i = 0;
   let j = arr.length-1;
   while(i < j) {
-    let tmp = arr[i];
+    const tmp = arr[i];
     arr[i] = arr[j];
     arr[j] = tmp;
     i++;
@@ -29,10 +30,10 @@ export function reverseStringLambda(str) {
   return (str => str.split('').reverse().join(''))(str);
 }
 
+// Check if two numbers in array add to n
 export function doTwoMemSumTo(n, arr) {
-  let set = new Set();
-
-  for (var i = 0; i < arr.length; i++) {
+  const set = new Set();
+  for (let i = 0; i < arr.length; i++) {
     if (set.has(arr[i])) {
       return true;
     } else {
