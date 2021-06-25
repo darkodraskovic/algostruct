@@ -15,17 +15,21 @@ import { HashTable } from './hash-table.js'
 // const b = [4, 6, 30];
 // console.log(mergeSorted(a, b));
 
-const myHashTable = new HashTable(2);
+const myHashTable = new HashTable(10);
 myHashTable.set('grapes', 1000);
-// console.log(myHashTable.get('grapes'));
 myHashTable.set('apples', 9);
-// console.log(myHashTable.get('apples'));
 myHashTable.set('oranges', 111);
-// console.log(myHashTable.get('oranges'));
 myHashTable.set('pears', 91);
-// console.log(myHashTable.get('pears'));
 myHashTable.set('tangerine', 123);
-console.log(myHashTable.get('tangerine'));
+myHashTable.set('tangerine', 121);
+myHashTable.set('tangerine', 122);
 myHashTable.set('berries', 321);
+
 console.log(myHashTable.get('berries'));
-console.log(myHashTable.get('egg'));
+console.log(myHashTable.get('grapes'));
+console.log(myHashTable.get('pears'));
+// console.log(myHashTable.get('egg'));
+console.log(myHashTable.keys());
+console.log(myHashTable);
+
+
