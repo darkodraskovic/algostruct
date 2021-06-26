@@ -56,3 +56,25 @@ export function mergeSorted(a, b) {
   }
   return c.concat(ai < a.length ? b.slice(bi) : a.slice(ai));
 }
+
+export function getFirstRecurringSlow(arr) {
+  let leastIdx = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (i + 1 > leastIdx) break;
+    for (let j = i+1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        if (j < leastIdx) leastIdx = j;
+        break;
+      }
+    }
+  }
+  return arr[leastIdx];
+}
+
+export function getFirstRecurring(arr) {
+  const occuring = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (occuring[arr[i]]) return arr[i];
+    else occuring[arr[i]] = true;
+  }
+}

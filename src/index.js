@@ -2,6 +2,8 @@
 import { doTwoMemSumTo } from './utils.js'
 import { reverseStringLambda } from './utils.js'
 import { mergeSorted } from './utils.js'
+import { getFirstRecurring } from './utils.js'
+import { getFirstRecurringSlow } from './utils.js'
 import { HashTable } from './hash-table.js'
 
 // const arr1 = ['a', 'b', 'c', 'd', 'e'];
@@ -32,4 +34,20 @@ console.log(myHashTable.get('pears'));
 console.log(myHashTable.keys());
 console.log(myHashTable);
 
+console.log("\ngetFirstRecurringSlow");
+console.log((getFirstRecurringSlow([2, 5, 1, 2, 3, 5, 1, 2, 4])));
+console.log((getFirstRecurringSlow([2, 5, 5, 2, 3, 5, 1, 2, 4])));
+console.log((getFirstRecurringSlow([2, 3, 4, 5])));
+console.log((getFirstRecurringSlow([1])));
+console.log((getFirstRecurringSlow([])));
+console.log((getFirstRecurringSlow([1,1])));
+console.log((getFirstRecurringSlow([2,5,4,3,4,5,2,1])));
 
+console.log("\ngetFirstRecurring");
+console.log((getFirstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4])));
+console.log((getFirstRecurring([2, 5, 5, 2, 3, 5, 1, 2, 4])));
+console.log((getFirstRecurring([2, 3, 4, 5])));
+console.log((getFirstRecurring([1])));
+console.log((getFirstRecurring([])));
+console.log((getFirstRecurring([1,1])));
+console.log((getFirstRecurring([2,5,4,3,4,5,2,1])));
