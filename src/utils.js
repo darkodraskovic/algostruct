@@ -78,3 +78,23 @@ export function getFirstRecurring(arr) {
     else occuring[arr[i]] = true;
   }
 }
+
+export function test() {
+  console.log("\ngetFirstRecurringSlow");
+  console.log((getFirstRecurringSlow([2, 5, 1, 2, 3, 5, 1, 2, 4])));
+  console.log((getFirstRecurringSlow([2, 5, 5, 2, 3, 5, 1, 2, 4])));
+  console.log((getFirstRecurringSlow([2, 3, 4, 5])));
+  console.log((getFirstRecurringSlow([1])));
+  console.log((getFirstRecurringSlow([])));
+  console.log((getFirstRecurringSlow([1, 1])));
+  console.log((getFirstRecurringSlow([2, 5, 4, 3, 4, 5, 2, 1])));
+
+  console.log("\ngetFirstRecurring");
+  console.log((getFirstRecurring([2, 5, 1, 2, 3, 5, 1, 2, 4])));
+  console.log((getFirstRecurring([2, 5, 5, 2, 3, 5, 1, 2, 4])));
+  console.log((getFirstRecurring([2, 3, 4, 5])));
+  console.log((getFirstRecurring([1])));
+  console.log((getFirstRecurring([])));
+  console.log((getFirstRecurring([1, 1])));
+  console.log((getFirstRecurring([2, 5, 4, 3, 4, 5, 2, 1])));
+}
