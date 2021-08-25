@@ -24,18 +24,45 @@ export class LinkedList {
     this.length++;
     return this;
   }
+  
   insert(index, value) {
-    if (index < 0 || index >= this.length) return;
-    let current = this.head;
-    for (let i = 0; i < index; i++) {
-      current = current.next;
-    }
+    if (index <= 0) return this.prepend(value);
+    if (index >= this.length) return this.append(value);
+
+    const current = this.traverse(index-1);
     current.next = {
       value: value,
       next: current.next
     }
     this.length++;
     return this;
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) {
+      return;
+    }
+    
+    const current = this.traverse(index-1);
+    if (index === 0) {
+      this.head = this.head.next;
+    }    
+    else if (index === this.length-1) {
+      this.tail = current;
+      current.next = null;
+    } else {
+      current.next = current.next.next;
+    }
+    this.length--;
+    return this;
+  }
+  
+  traverse(index) {
+    let current = this.head;
+    for (let i = 0; i < index; i++) {
+      current = current.next;
+    }
+    return current;
   }
 
   array() {
@@ -50,18 +77,28 @@ export class LinkedList {
 }
 
 export function test() {
-  const myLinkedList = new LinkedList(10);
-  myLinkedList.append(16);
-  myLinkedList.append(22);
-  myLinkedList.append(43);
-  myLinkedList.append(81);
-  myLinkedList.append(-1);
-  myLinkedList.prepend(55);
-  myLinkedList.prepend(25);
-  console.log(myLinkedList.array()); // => 25 -> 55 -> 10 -> 16 -> 22 -> 43 -> 81 -> -1
+  const linkedList = new LinkedList(10);
+  linkedList.append(16);
+  linkedList.append(22);
+  linkedList.append(43);
+  linkedList.append(81);
+  linkedList.append(-1);
+  linkedList.prepend(55);
+  linkedList.prepend(25);
+  console.log(linkedList.array()); // => 25 -> 55 -> 10 -> 16 -> 22 -> 43 -> 81 -> -1
 
-  myLinkedList.insert(0, 1);
-  myLinkedList.insert(3, 4);
-  myLinkedList.insert(9, 10);
-  console.log(myLinkedList.array());
+  linkedList.insert(-1000, -100); // insert before the first(=0) index
+  linkedList.insert(0, 1); // insert at the first(=0) index
+  linkedList.insert(linkedList.length + 2, 1000); // insert after the last(=len-1) index
+  linkedList.insert(3, 3);
+  linkedList.insert(9, 9);
+  linkedList.insert(linkedList.length-1, 99); // insert at the last(len-1) index
+  console.log(linkedList.array());
+
+  linkedList.remove(0);
+  linkedList.remove(-1);
+  linkedList.remove(4);
+  linkedList.remove(linkedList.length-1);
+  linkedList.remove(linkedList.length);
+  console.log(linkedList.array());
 }
