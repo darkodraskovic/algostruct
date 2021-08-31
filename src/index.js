@@ -1,3 +1,3 @@
-import { test } from './stack.js'
+import { test } from './queue.js'
 
 test()

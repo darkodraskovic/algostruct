@@ -1,7 +1,7 @@
 class Node {
   constructor(value) {
     this.value = value;
-    this.next = null;
+    this.prev = null;
   }
 }
 
@@ -15,12 +15,13 @@ export class Stack {
     return this.top;
   }
   push(value) {
+    const newNode = new Node(value);
     if (this.isEmpty()) {
-      this.top = new Node(value);
-      this.bottom = this.top;
+      this.bottom = this.top = newNode;
     } else {
-      this.top.next = new Node(value);
-      this.top = this.top.next;
+      const temp = this.top;
+      this.top = newNode;
+      newNode.prev = temp;
     }
     this.length++;
     return this;
@@ -28,40 +29,65 @@ export class Stack {
   pop() {
     if (this.isEmpty()) return null;
 
-    if (this.length === 1) {
-      this.bottom = this.top = null;
-    } else {
-      const current = this.traverse(this.length-2);
-      this.top = current;
-      this.top.next = null;
-    }
-
+    const top = this.top;
+    
+    this.top = this.top.prev;
     this.length--;
-    return this;
+    if (this.isEmpty) this.bottom = null;
+    
+    return top;
   }
   isEmpty() {
     return !this.length;
   }
-  traverse(index) {
-    let current = this.bottom;
-    for (let i = 0; i < index; i++) {
-      current = current.next;
-    }
-    return current;
-  }
   array() {
     const arr = [];
-    let current = this.bottom;
+    let current = this.top;
     while (current) {
       arr.push(current.value);
-      current = current.next;
+      current = current.prev;
     }
-    return arr;
+    return arr.reverse();
+  }
+}
+
+export class StackArray {
+  constructor() {
+    this.arr = [];
+  }
+  peek() {
+    // if (!this.arr.length) return null;
+    return this.arr[this.arr.length-1];
+  }
+  push(value) {
+    this.arr.push(value);
+    return this;
+  }
+  pop() {
+    // if (!this.arr.length) return null;
+    return this.arr.pop();
+  }
+  isEmpty() {
+    return !this.arr.length;
+  }
+  
+  array() {
+    return this.arr;
+  }
+  get length() {
+    return this.arr.length;
+  }
+  get bottom() {
+    return this.arr[0]
+  }
+  get top() {
+    return this.arr[this.arr.length-1];
   }
 }
 
 export function test() {
-  const stack = new Stack();
+  // const stack = new Stack();
+  const stack = new StackArray();
   const n = 10;
   for (let i = 0; i < n; i++) {
     stack.push(i);
