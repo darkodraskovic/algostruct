@@ -1,3 +1,3 @@
-import { test } from './queue.js'
+import { test } from './binary-search-tree.js'
 
 test()
