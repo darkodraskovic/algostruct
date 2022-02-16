@@ -57,13 +57,13 @@ class QueueStack {
   dequeue() {
     if (this.stack.isEmpty()) return null;
     
-    const temp = new Stack();
+    const tmp = new Stack();
     while (this.stack.length > 1) {
-      temp.push(this.stack.pop().value);
+      tmp.push(this.stack.pop().value);
     }
     const first = this.stack.pop();
-    while (temp.length > 0) {
-      this.stack.push(temp.pop().value);
+    while (tmp.length > 0) {
+      this.stack.push(tmp.pop().value);
     }
     return first;
   }

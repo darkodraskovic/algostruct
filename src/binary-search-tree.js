@@ -47,10 +47,11 @@ class BinarySearchTree {
         parent = current;
         current = current.right;
       } else {
-        if (current.left && current.right) { // two children => replace with successor
+        // current has two children => replace with successor
+        if (current.left && current.right) {
           let successor = current.right;
           let successorParent = null;
-          while(successor.left) {
+          while (successor.left) {
             successorParent = successor;
             successor = successor.left;
           }
@@ -66,11 +67,14 @@ class BinarySearchTree {
             else parent.right = successor;
           }
           return current;
-        } else if (current.left || current.right) { // one child => bypass
+          // current has one child => bypass current
+        } else if (current.left || current.right) {
+          // value is at the root
           if (!parent) {
             this.root = current.left || current.right;
             return current.left || current.right;
           }
+          // current is left of parent
           if (current.value < parent.value) {
             if (current.left) parent.left = current.left;
             else parent.left = current.right;
@@ -79,7 +83,8 @@ class BinarySearchTree {
             else parent.right = current.right;
           }
           return current;
-        } else { // no children => remove
+          // current has no children => remove current
+        } else {
           if (current.value < parent.value) parent.left = null;
           else parent.right = null;
           return current;
@@ -104,7 +109,7 @@ class BinarySearchTree {
 }
 
 function traverse(node) {
-  const tree = {value: node.value};
+  const tree = { value: node.value };
   tree.left = node.left ? traverse(node.left) : null;
   tree.right = node.right ? traverse(node.right) : null;
   return tree;
@@ -136,7 +141,7 @@ export function test() {
   bst.remove(9); // remove non existing
   bst.remove(170);
   bst.remove(15); // root
-  console.dir(traverse(bst.root), {depth: null});
+  console.dir(traverse(bst.root), { depth: null });
 
   // console.log("================================")
   // console.log(bst.lookup(20));

@@ -1,3 +1,3 @@
-import { test } from './binary-search-tree.js'
+import { test } from './graph.js'
 
-test()
+test();

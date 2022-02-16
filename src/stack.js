@@ -19,9 +19,9 @@ export class Stack {
     if (this.isEmpty()) {
       this.bottom = this.top = newNode;
     } else {
-      const temp = this.top;
+      const tmp = this.top;
       this.top = newNode;
-      newNode.prev = temp;
+      newNode.prev = tmp;
     }
     this.length++;
     return this;
@@ -33,7 +33,7 @@ export class Stack {
     
     this.top = this.top.prev;
     this.length--;
-    if (this.isEmpty) this.bottom = null;
+    if (this.isEmpty()) this.bottom = null;
     
     return top;
   }
