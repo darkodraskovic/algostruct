@@ -15,8 +15,8 @@ export class MyArray {
   }
 
   pop() {
-    const lastItem = this.data[this.length-1];
-    delete this.data[this.length-1];
+    const lastItem = this.data[this.length - 1];
+    delete this.data[this.length - 1];
     this.length--;
     return lastItem;
   }
@@ -29,10 +29,10 @@ export class MyArray {
   }
 
   shiftItems(index) {
-    for (let i = index; i < this.length-1; i++) {
-      this.data[i] = this.data[i+1];
+    for (let i = index; i < this.length - 1; i++) {
+      this.data[i] = this.data[i + 1];
     }
-    delete this.data[this.length-1];
+    delete this.data[this.length - 1];
   }
 }
 
