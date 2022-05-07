@@ -9,6 +9,24 @@ function inception(counter) {
     return inception(--counter);
 }
 
+export function findFactorialRecursive(number) {
+    if (number < 2) {
+        return 1;
+    }
+    return number * findFactorialRecursive(--number);
+}
+
+export function findFactorialIterative(number) {
+    var result = 1;
+    while (number > 1) {
+        result *= number--;
+    }
+    return result;
+}
+
 export function test() {
-    console.log(inception(3));
+    const resultRecursive = findFactorialRecursive(5);
+    const resultIterative = findFactorialIterative(5);
+
+    return;
 }

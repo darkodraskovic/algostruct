@@ -7,7 +7,7 @@
   "scripts": {
     "start": "nodemon src/index.js",
     "start-babel": "nodemon --exec babel-node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +16,7 @@
     "@babel/core": "^7.17.4",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.12.11",
+    "jasmine": "^4.1.0",
     "nodemon": "^2.0.15"
   }
 }
