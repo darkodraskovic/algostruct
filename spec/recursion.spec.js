@@ -1,7 +1,8 @@
 import {
     factorialRecursive, factorialIterative,
     fibonacciIterative, fibonacciRecursive,
-    fibonacciRecursiveSimple, fibonacciIterativeSimple
+    fibonacciRecursiveSimple, fibonacciIterativeSimple,
+    reverseStringRecursive
 } from '../src/algorithms/recursion.js'
 
 describe("Recursion function which", function () {
@@ -45,6 +46,9 @@ describe("Recursion function which", function () {
             expect(result).toBe(
                 fibonacciSequence[i]);
         }
+    });
+    it("reverses string recursively", function () {
+        expect(reverseStringRecursive("recurse to a high mountain")).toEqual("niatnuom hgih a ot esrucer");
     });
 });
 

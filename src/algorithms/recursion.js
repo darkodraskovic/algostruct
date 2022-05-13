@@ -70,6 +70,14 @@ export function fibonacciIterativeSimple(n) {
     return arr[n];
 }
 
+export function reverseStringRecursive(str) {
+    if (str == "") {
+        return str;
+    }
+    return str.slice(-1) + reverseStringRecursive(str.slice(0, -1));
+}
+
+
 export function test() {
     // let result = factorialRecursive(5);
     // let result = factorialIterative(5);
@@ -77,7 +85,9 @@ export function test() {
     // let result = fibonacciIterative(8);
     // let result = fibonacciRecursive(2);
     // let result = fibonacciRecursiveSimple(8);
-    let result = fibonacciIterativeSimple(8);
+    // let result = fibonacciIterativeSimple(8);
+
+    let result = reverseStringRecursive("darko draskovic");
 
     return;
 }
