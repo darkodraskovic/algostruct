@@ -18,5 +18,8 @@
     "@babel/preset-env": "^7.12.11",
     "jasmine": "^4.1.0",
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "@types/jasmine": "^4.0.3"
   }
 }
