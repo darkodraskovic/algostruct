@@ -53,15 +53,14 @@ export function insertionSort(array) {
     }
 }
 
-function mergeSort(array) {
+export function mergeSort(array) {
     if (array.length === 1) {
         return array
     }
 
-    // Split Array in into right and left
-    const half = Math.ceil(list.length / 2);
-    let left = array.slice(0, half)
-    let right = array.slice(-half)
+    const half = Math.ceil(array.length / 2);
+    const left = array.slice(0, half)
+    const right = array.slice(half)
 
     return merge(
         mergeSort(left),
@@ -69,8 +68,22 @@ function mergeSort(array) {
     )
 }
 
-function merge(left, right) {
-    // TODO: 
+export function merge(left, right) {
+    const array = []
+    let i = 0;
+    let j = 0;
+    while (i < left.length && j < right.length) {
+        if (left[i] < right[j]) {
+            array.push(left[i]);
+            i++;
+        } else {
+            array.push(right[j]);
+            j++;
+        }
+    }
+    array.push(...left.slice(i))
+    array.push(...right.slice(j));
+    return array;
 }
 
 
@@ -79,5 +92,8 @@ function merge(left, right) {
 // insertionSort(numbers);
 // console.log(numbers);
 
+// merge([1, 2, 5, 6, 44, 99], [0, 4, 63, 87, 283])
+
 // const answer = mergeSort(numbers);
+
 // console.log(answer);
