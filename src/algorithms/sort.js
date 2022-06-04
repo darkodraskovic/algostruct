@@ -86,14 +86,25 @@ export function merge(left, right) {
     return array;
 }
 
+export function quickSort(array, left, right) {
+    if (left >= right) return;
 
-// bubbleSort(numbers);
-// selectionSort(numbers);
-// insertionSort(numbers);
-// console.log(numbers);
+    let start = left;
+    let end = right;
 
-// merge([1, 2, 5, 6, 44, 99], [0, 4, 63, 87, 283])
+    let pivot = array[right]
+    while (left < right) {
+        if (array[left] > pivot) {
+            array[right] = array[left];
+            array[left] = array[right - 1];
+            array[right - 1] = pivot;
 
-// const answer = mergeSort(numbers);
+            right--;
+        } else {
+            left++;
+        }
+    }
 
-// console.log(answer);
+    quickSort(array, start, left - 1)
+    quickSort(array, left + 1, end)
+}

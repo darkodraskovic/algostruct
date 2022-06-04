@@ -1,6 +1,6 @@
 import {
     merge,
-    bubbleSort, selectionSort, insertionSort, mergeSort
+    bubbleSort, selectionSort, insertionSort, mergeSort, quickSort
 } from '../src/algorithms/sort.js'
 
 describe("Function", function () {
@@ -41,6 +41,12 @@ describe("Function", function () {
     it(mergeSort.name + " which sorts numbers", function () {
         let numbers = createNumbers();
         numbers = mergeSort(numbers);
+        expect(numbers).toEqual(sorted);
+    });
+
+    it(quickSort.name + " which sorts numbers", function () {
+        let numbers = createNumbers();
+        quickSort(numbers, 0, numbers.length - 1);
         expect(numbers).toEqual(sorted);
     });
 });
