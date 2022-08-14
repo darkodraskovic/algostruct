@@ -6,6 +6,7 @@ function swapArrayElements(array, i1, i2) {
     array[i2] = tmp;
 }
 
+// not used in real life; used to teach sorting
 export function bubbleSort(array) {
     for (let i = 0; i < array.length - 1; i++) {
         for (let j = 1; j < array.length - i; j++) {
@@ -16,6 +17,7 @@ export function bubbleSort(array) {
     }
 }
 
+// not used in real life; used to teach sorting
 export function selectionSort(array) {
     for (let i = 0; i < array.length - 1; i++) {
         let smallestIdx = i;
@@ -42,6 +44,7 @@ function shiftRight(array, start, end) {
     }
 }
 
+// use when only few items and with mostly sorted data
 export function insertionSort(array) {
     for (let i = 1; i < array.length; i++) {
         if (array[i] < array[i - 1]) {
@@ -53,6 +56,8 @@ export function insertionSort(array) {
     }
 }
 
+// use this if worst is probable: O(n log(n)) in worst
+// however, space complexity is O(n)
 export function mergeSort(array) {
     if (array.length === 1) {
         return array
@@ -86,6 +91,8 @@ export function merge(left, right) {
     return array;
 }
 
+// O(n log(n)) in best and average
+// space complexitiy is O(log(n)) (better than merge sort)
 export function quickSort(array, left, right) {
     if (left >= right) return;
 

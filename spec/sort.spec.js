@@ -30,13 +30,14 @@ describe("Function", function () {
     });
 
     let sortFuncs = [bubbleSort, selectionSort, insertionSort];
-    sortFuncs.forEach(func => {
+    for (let i = 0; i < sortFuncs.length; i++) {
+        const func = sortFuncs[i];
         it(func.name + " which sorts numbers", function () {
             let numbers = createNumbers();
             func(numbers);
             expect(numbers).toEqual(sorted);
         });
-    });
+    }
 
     it(mergeSort.name + " which sorts numbers", function () {
         let numbers = createNumbers();
