@@ -6,7 +6,7 @@ export class Node {
   }
 }
 
-class BinarySearchTree {
+export class BinarySearchTree {
   constructor() {
     this.root = null;
   }
@@ -47,8 +47,10 @@ class BinarySearchTree {
         parent = current;
         current = current.right;
       } else {
-        // current has two children => replace with successor
+        // we found value
+        // 1. current has two children => replace with successor
         if (current.left && current.right) {
+          // detach and rearrange left and right branch
           let successor = current.right;
           let successorParent = null;
           while (successor.left) {
@@ -61,13 +63,16 @@ class BinarySearchTree {
             successor.right = current.right;
           }
           if (!parent) {
+            // we removed root
             this.root = successor;
           } else {
+            // attach branch to parent's left
             if (current.value < parent.value) parent.left = successor;
+            // attach branch to parent's right
             else parent.right = successor;
           }
           return current;
-          // current has one child => bypass current
+          // 2. current has one child => bypass current
         } else if (current.left || current.right) {
           // value is at the root
           if (!parent) {
@@ -83,7 +88,7 @@ class BinarySearchTree {
             else parent.right = current.right;
           }
           return current;
-          // current has no children => remove current
+          // 3. current has no children => remove current
         } else {
           if (current.value < parent.value) parent.left = null;
           else parent.right = null;
@@ -115,7 +120,7 @@ function traverse(node) {
   return tree;
 }
 
-export function test() {
+(function test() {
   const bst = new BinarySearchTree();
   bst.insert(9);
   bst.insert(4);
@@ -141,8 +146,9 @@ export function test() {
   bst.remove(9); // remove non existing
   bst.remove(170);
   bst.remove(15); // root
-  console.dir(traverse(bst.root), { depth: null });
 
-  // console.log("================================")
-  // console.log(bst.lookup(20));
-}
+  var tree = traverse(bst.root);
+  console.dir(tree, { depth: null });
+
+  console.log(bst.lookup(20));
+})()

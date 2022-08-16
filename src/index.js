@@ -1,3 +1,3 @@
-import { test } from './algorithms/recursion.js'
+import { test } from './algorithms/search.js'
 
-test();
+// test();
