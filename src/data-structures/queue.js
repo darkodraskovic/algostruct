@@ -27,19 +27,19 @@ class Queue {
   }
   dequeue() {
     if (!this.length) return null;
-    
+
     const first = this.first;
     this.first = this.first.next;
     this.length--;
 
     if (!this.length) this.last = null;
-    
+
     return first;
   }
   array() {
     const arr = [];
     let current = this.first;
-    while(current) {
+    while (current) {
       arr.push(current.value);
       current = current.next;
     }
@@ -49,14 +49,14 @@ class Queue {
 
 class QueueStack {
   constructor() {
-    this.stack = new Stack();    
+    this.stack = new Stack();
   }
   enqueue(value) {
     this.stack.push(value);
   }
   dequeue() {
     if (this.stack.isEmpty()) return null;
-    
+
     const tmp = new Stack();
     while (this.stack.length > 1) {
       tmp.push(this.stack.pop().value);
@@ -89,29 +89,29 @@ export function test() {
     queue.enqueue(i);
   }
   console.log("len: " + queue.length);
-  console.log("queue: "+ queue.array());
+  console.log("queue: " + queue.array());
 
   console.log("\ndequeue 1 item");
   queue.dequeue()
   console.log("len: " + queue.length);
-  console.log("queue: "+ queue.array());
+  console.log("queue: " + queue.array());
 
   console.log("\ndequeue everything except last");
   while (queue.length > 1) {
     queue.dequeue();
   }
   console.log("len: " + queue.length);
-  console.log("queue: "+ queue.array());
+  console.log("queue: " + queue.array());
 
   console.log("\ndequeue last");
   queue.dequeue()
   console.log("len: " + queue.length);
-  console.log("queue: "+ queue.array());
+  console.log("queue: " + queue.array());
 
   console.log("\ndequeue empty queue");
   queue.dequeue()
   console.log("len: " + queue.length);
-  console.log("queue: "+ queue.array());
+  console.log("queue: " + queue.array());
 
   console.log("\nenqueue " + n + " items");
   queue.enqueue(0);
@@ -119,5 +119,5 @@ export function test() {
     queue.enqueue(i);
   }
   console.log("len: " + queue.length);
-  console.log("queue: "+ queue.array());
+  console.log("queue: " + queue.array());
 }

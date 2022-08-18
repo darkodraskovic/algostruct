@@ -111,6 +111,22 @@ export class BinarySearchTree {
     }
     return null;
   }
+  bfs() {
+    let list = [];
+    let queue = [];
+    queue.push(this.root);
+
+    while (queue.length) {
+      let current = queue.shift();
+      list.push(current.value);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+    }
+    return list;
+  }
+  dfs() {
+
+  }
 }
 
 function traverse(node) {
@@ -122,33 +138,6 @@ function traverse(node) {
 
 (function test() {
   const bst = new BinarySearchTree();
-  bst.insert(9);
-  bst.insert(4);
-  bst.insert(6);
-  bst.insert(5);
-  bst.insert(3);
-  bst.insert(20);
-  bst.insert(20);
-  bst.insert(170);
-  bst.insert(15);
-  bst.insert(1);
-  bst.insert(25);
-  bst.insert(300);
-  bst.insert(7);
-  bst.insert(30);
-
-  bst.remove(9); // root
-  bst.remove(300); // leaf
-  bst.remove(25); // leaf
-  bst.remove(7); // single left child
-  bst.remove(25); // single right child
-  bst.remove(9); // root
-  bst.remove(9); // remove non existing
-  bst.remove(170);
-  bst.remove(15); // root
-
   var tree = traverse(bst.root);
   console.dir(tree, { depth: null });
-
-  console.log(bst.lookup(20));
 })()

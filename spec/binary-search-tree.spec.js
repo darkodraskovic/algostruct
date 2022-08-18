@@ -21,5 +21,5 @@ describe("Function", function () {
         difference.forEach((value) => expect(bst.lookup(value)).not.toBeNull());
 
         remove.forEach((value) => expect(bst.lookup(value)).toBeNull());
-    })
-})
+    });
+});
