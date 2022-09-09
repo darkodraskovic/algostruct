@@ -96,7 +96,7 @@ export class BinarySearchTree {
         }
       }
     }
-    return null
+    return null;
   }
   lookup(value) {
     let current = this.root;
@@ -124,8 +124,39 @@ export class BinarySearchTree {
     }
     return list;
   }
-  dfs() {
+  bfsRecursive(queue, list) {
+    if (!queue.length) {
+      return list;
+    }
 
+    let current = queue.shift();
+    list.push(current.value);
+
+    if (current.left) queue.push(current.left);
+    if (current.right) queue.push(current.right);
+
+    return this.bfsRecursive(queue, list);
+  }
+
+  traversePreorder(node, list) {
+    list.push(node.value);
+    if (node.left) this.traversePreorder(node.left, list);
+    if (node.right) this.traversePreorder(node.right, list);
+    return list;
+  }
+
+  traverseInorder(node, list) {
+    if (node.left) this.traverseInorder(node.left, list);
+    list.push(node.value);
+    if (node.right) this.traverseInorder(node.right, list);
+    return list;
+  }
+
+  traversePostorder(node, list) {
+    if (node.left) this.traversePostorder(node.left, list);
+    if (node.right) this.traversePostorder(node.right, list);
+    list.push(node.value);
+    return list;
   }
 }
 
@@ -136,8 +167,3 @@ function traverse(node) {
   return tree;
 }
 
-(function test() {
-  const bst = new BinarySearchTree();
-  var tree = traverse(bst.root);
-  console.dir(tree, { depth: null });
-})()
