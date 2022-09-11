@@ -1,4 +1,4 @@
-const g_connected = [
+const connectedGraph = [
     [2, 6, 10],  // 0
     [3, 7, 8, 9],  // 1
     [0, 3, 6],  // 2
@@ -13,7 +13,7 @@ const g_connected = [
     [5],  // 11
 ]
 
-const g_disconnected = [
+const disconnectedGraph = [
     [2, 6, 10],  // 0
     [7, 8, 9],  // 1
     [0, 3, 6],  // 2
@@ -47,7 +47,46 @@ function dfs(graph) {
     return count;
 }
 
+function _bfs_solve_path(graph, startNode, endNode) {
+    let enqueued = Array(graph.length).fill(false);
+    let parents = Array(graph.length).fill(undefined);
+    let queue = [];
+
+    queue.push(startNode);
+    enqueued[startNode] = true;
+    while (queue.length) {
+        let node = queue.shift();
+        if (node == endNode) break;
+        for (let i = 0; i < graph[node].length; i++) {
+            const neighbor = graph[node][i];
+            if (enqueued[neighbor]) continue;
+            queue.push(neighbor);
+            enqueued[neighbor] = true;
+            parents[neighbor] = node;
+        }
+    }
+
+    return parents;
+}
+
+function _bfs_reconstruct_path(parents, endNode) {
+    let path = [];
+    let current = endNode;
+    while (current) {
+        path.push(current);
+        current = parents[current];
+    }
+    path.reverse();
+}
+
+function bfs(graph, startNode, endNode) {
+    let parents = _bfs_solve_path(graph, startNode, endNode);
+    return _bfs_reconstruct_path(parents, endNode);
+}
+
 (function () {
-    dfs(g_connected);
-    dfs(g_disconnected);
+    // dfs(connectedGraph);
+    // dfs(disconnectedGraph);
+
+    bfs(connectedGraph, 2, 7);
 })()
