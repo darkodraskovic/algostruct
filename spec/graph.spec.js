@@ -1,6 +1,6 @@
 import { bfs, dfs } from "../src/algorithms/graph.js";
 
-describe("Function", function () {
+describe("Graph search algorithms", function () {
     const connectedGraph = [
         [2, 6, 10], // 0
         [3, 7, 8, 9], // 1

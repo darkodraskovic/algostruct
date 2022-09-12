@@ -3,7 +3,7 @@ import {
     bubbleSort, selectionSort, insertionSort, mergeSort, quickSort
 } from '../src/algorithms/sort.js'
 
-describe("Function", function () {
+describe("Sort functions:", function () {
     const left = [1, 2, 5, 6, 44, 99];
     const right = [0, 4, 63, 87, 283];
 
@@ -32,20 +32,20 @@ describe("Function", function () {
     let sortFuncs = [bubbleSort, selectionSort, insertionSort];
     for (let i = 0; i < sortFuncs.length; i++) {
         const func = sortFuncs[i];
-        it(func.name + " which sorts numbers", function () {
+        it(func.name + " sorts numbers", function () {
             let numbers = createNumbers();
             func(numbers);
             expect(numbers).toEqual(sorted);
         });
     }
 
-    it(mergeSort.name + " which sorts numbers", function () {
+    it(mergeSort.name + " sorts numbers", function () {
         let numbers = createNumbers();
         numbers = mergeSort(numbers);
         expect(numbers).toEqual(sorted);
     });
 
-    it(quickSort.name + " which sorts numbers", function () {
+    it(quickSort.name + " sorts numbers", function () {
         let numbers = createNumbers();
         quickSort(numbers, 0, numbers.length - 1);
         expect(numbers).toEqual(sorted);

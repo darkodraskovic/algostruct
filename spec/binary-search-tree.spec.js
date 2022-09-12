@@ -1,6 +1,6 @@
 import { BinarySearchTree } from "../src/data-structures/binary-search-tree.js";
 
-describe("Function", function () {
+describe("BinarySearchTree methods", function () {
     const insert = [9, 4, 6, 5, 3, 20, 20, 170, 15, 1, 25, 300, 7, 30];
     const remove = [9, 300, 25, 7, 25, 9, 9, 170, 15];
 
